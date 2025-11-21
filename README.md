@@ -157,8 +157,11 @@ Future updates coming soon:
  👥 Multiplayer mode
  📊 Global leaderboard
  🎨 Custom snake skins
+
+```
 🤝 Contributing
 Want to make the game better? Here's how:
+```
 
 Fork the project
 Create your feature (git checkout -b feature/AmazingFeature)
@@ -166,7 +169,9 @@ Commit your changes (git commit -m 'Add some AmazingFeature')
 Push to the branch (git push origin feature/AmazingFeature)
 Open a Pull Request
 All contributions are welcome! 🎉
+
 ```
+
 📝 License
 This project is open source and free to use.
 
