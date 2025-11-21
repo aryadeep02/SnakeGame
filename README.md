@@ -183,11 +183,8 @@ You for checking out this project! ⭐
 ```
 
 
-🌐 Live Demo: snake-game-one-lemon.vercel.app
-🐛 Report Bugs: Open an Issue
-💡 Suggest Features: Open an Issue
-⭐ Star this project if you had fun playing!
-Made with ❤️ and lots of ☕
+
+
 
 
 🎮 Quick Facts
@@ -200,5 +197,10 @@ Made with ❤️ and lots of ☕
 🌐 Browser Support: All Modern Browsers
 Happy Gaming! 🐍🎮
 
+```
+
+
+```
+Made with ❤️ and lots of ☕
 ```
    
