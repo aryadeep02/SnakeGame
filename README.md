@@ -104,23 +104,25 @@ That's it! 🎮
 ```
 🛠️ Built With
 Technology	Purpose
+```
 HTML5	Game Structure
 CSS3	Beautiful Design
 JavaScript	Game Logic
 Vercel	Hosting
 No libraries. No frameworks. Just pure code! 💪
-
-📸 Screenshots
-🏠 Start Screen
-Modern welcome screen with difficulty selection
-
+```
+```
 🎮 Gameplay
 Smooth gameplay with neon effects
 
 🏆 Game Over
 Detailed stats with option to change difficulty
 
+```
+
 🎯 Difficulty Levels Explained
+
+```
 🟢 Easy Mode (Speed: Slow)
 Perfect for learning
 More time to think
@@ -133,14 +135,20 @@ Best overall experience
 For experienced players
 Quick reactions needed
 Ultimate challenge
+```
 💡 Pro Tips
+
+```
 🎯 Plan Ahead - Think a few moves ahead
 🔄 Use the Space - Create patterns to stay safe
 ⚡ Stay Calm - Don't panic when you get long
 🎮 Practice - Start with Easy mode first
 🏆 Challenge Yourself - Try to beat your high score
 🗺️ Roadmap
+```
 Future updates coming soon:
+
+```
 
  🎵 Add sound effects
  🎶 Background music
@@ -158,16 +166,17 @@ Commit your changes (git commit -m 'Add some AmazingFeature')
 Push to the branch (git push origin feature/AmazingFeature)
 Open a Pull Request
 All contributions are welcome! 🎉
-
+```
 📝 License
 This project is open source and free to use.
 
 🙏 Acknowledgments
+```
 Classic Snake Game for the inspiration
 All the players and testers
 You for checking out this project! ⭐
-📞 Contact
-Have questions or suggestions?
+```
+
 
 🌐 Live Demo: snake-game-one-lemon.vercel.app
 🐛 Report Bugs: Open an Issue
@@ -175,7 +184,6 @@ Have questions or suggestions?
 ⭐ Star this project if you had fun playing!
 Made with ❤️ and lots of ☕
 
-⬆ Back to Top
 
 🎮 Quick Facts
 ```
