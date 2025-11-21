@@ -9,7 +9,7 @@
 
 ### 🎮 [Play Now](https://snake-game-one-lemon.vercel.app) 
 </div>
----
+
 
 ## 📖 About The Game
 
