@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game - Modern Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section>
+            <div class="game-header">
+                <div class="infos">
+                    <div class="info">
+                        <span class="info-label">High Score</span>
+                        <span class="info-value" id="high-score">0</span>
+                    </div>
+                    <div class="info">
+                        <span class="info-label">Score</span>
+                        <span class="info-value" id="score">0</span>
+                    </div>
+                    <div class="info">
+                        <span class="info-label">Time</span>
+                        <span class="info-value" id="time">00:00</span>
+                    </div>
+                </div>
+                <button class="btn btn-pause" id="pauseBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                    </svg>
+                    Pause
+                </button>
+            </div>
+            
+            <div class="board-container">
+                <div class="board"></div>
+                <div class="game-controls">
+                    <p>Use Arrow Keys to Control</p>
+                    <div class="control-keys">
+                        <div class="key">↑</div>
+                        <div class="key-row">
+                            <div class="key">←</div>
+                            <div class="key">↓</div>
+                            <div class="key">→</div>
+                        </div>
+                    </div>
+                    <div class="current-difficulty">
+                        <span class="difficulty-label">Difficulty:</span>
+                        <span class="difficulty-value" id="currentDifficulty">Medium</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Start Game Modal -->
+        <div class="modal" id="startModal">
+            <div class="modal-content start-game">
+                <div class="modal-icon">🐍</div>
+                <h1>Snake Game</h1>
+                <p class="modal-description">Eat food, grow longer, avoid walls and yourself!</p>
+                <div class="difficulty-selector">
+                    <h3>Select Difficulty</h3>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn" data-speed="200" data-name="Easy">
+                            <span class="diff-emoji">🟢</span>
+                            Easy
+                        </button>
+                        <button class="difficulty-btn active" data-speed="150" data-name="Medium">
+                            <span class="diff-emoji">🟡</span>
+                            Medium
+                        </button>
+                        <button class="difficulty-btn" data-speed="100" data-name="Hard">
+                            <span class="diff-emoji">🔴</span>
+                            Hard
+                        </button>
+                    </div>
+                </div>
+                <button class="btn btn-start btn-primary">
+                    <span>Start Game</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div class="modal" id="gameOverModal" style="display: none;">
+            <div class="modal-content game-over">
+                <div class="modal-icon">💀</div>
+                <h1>Game Over!</h1>
+                <div class="game-stats">
+                    <div class="stat">
+                        <span class="stat-label">Final Score</span>
+                        <span class="stat-value" id="finalScore">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Time Played</span>
+                        <span class="stat-value" id="finalTime">00:00</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">High Score</span>
+                        <span class="stat-value" id="finalHighScore">0</span>
+                    </div>
+                </div>
+
+                <!-- Initial Screen: Ask to change difficulty -->
+                <div class="change-difficulty-question" id="difficultyQuestion">
+                    <p class="question-text">Want to change difficulty?</p>
+                    <div class="question-buttons">
+                        <button class="btn btn-secondary" id="btnChangeDifficulty">
+                            <span>Yes</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                            </svg>
+                        </button>
+                        <button class="btn btn-secondary" id="btnKeepDifficulty">
+                            <span>No</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Difficulty Selection Screen -->
+                <div class="change-difficulty-selector" id="difficultySelector" style="display: none;">
+                    <div class="difficulty-selector">
+                        <h3>Choose New Difficulty</h3>
+                        <div class="difficulty-buttons">
+                            <button class="difficulty-btn-restart" data-speed="200" data-name="Easy">
+                                <span class="diff-emoji">🟢</span>
+                                Easy
+                            </button>
+                            <button class="difficulty-btn-restart active" data-speed="150" data-name="Medium">
+                                <span class="diff-emoji">🟡</span>
+                                Medium
+                            </button>
+                            <button class="difficulty-btn-restart" data-speed="100" data-name="Hard">
+                                <span class="diff-emoji">🔴</span>
+                                Hard
+                            </button>
+                        </div>
+                    </div>
+                    <button class="btn btn-restart-with-difficulty btn-primary">
+                        <span>Play Again</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Direct Play Again Button -->
+                <button class="btn btn-restart btn-primary" id="btnDirectRestart" style="display: none;">
+                    <span>Play Again</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                    </svg>
+                </button>
+
+                <button class="btn btn-quit-game" id="btnQuitGame">
+                    <span>Main Menu</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pause Modal -->
+        <div class="modal" id="pauseModal" style="display: none;">
+            <div class="modal-content pause-game">
+                <div class="modal-icon">⏸️</div>
+                <h1>Game Paused</h1>
+                <div class="pause-buttons">
+                    <button class="btn btn-resume btn-primary">
+                        <span>Resume</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-quit">
+                        <span>Quit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
