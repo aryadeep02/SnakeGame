@@ -8,7 +8,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ### 🎮 [Play Now](https://snake-game-one-lemon.vercel.app) 
-
+</div>
 ---
 
 ## 📖 About The Game
